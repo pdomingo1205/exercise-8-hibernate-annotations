@@ -1,0 +1,10 @@
+com/pdomingo/model/dto/RoleDTO.class
+com/pdomingo/model/entities/Name.class
+com/pdomingo/model/dto/AddressDTO.class
+com/pdomingo/model/entities/Person.class
+com/pdomingo/model/dto/PersonDTO.class
+com/pdomingo/model/entities/Address.class
+com/pdomingo/model/entities/Role.class
+com/pdomingo/model/dto/ContactInfoDTO.class
+com/pdomingo/model/dto/NameDTO.class
+com/pdomingo/model/entities/ContactInfo.class

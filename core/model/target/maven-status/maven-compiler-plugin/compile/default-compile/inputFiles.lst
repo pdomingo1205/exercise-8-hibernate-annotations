@@ -1,0 +1,10 @@
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/entities/Person.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/dto/ContactInfoDTO.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/dto/AddressDTO.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/entities/Name.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/entities/Address.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/dto/RoleDTO.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/entities/Role.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/dto/PersonDTO.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/entities/ContactInfo.java
+/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/model/src/main/java/com/pdomingo/dto/NameDTO.java

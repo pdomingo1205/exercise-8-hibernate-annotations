@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.exer7.hibernate">
+
+	<class name="com.pdomingo.model.role.Role" table="role">
+		<id name="roleId" type="java.lang.Long" column="ROLE_ID">
+			<generator class="identity"/>
+		</id>
+
+		<property name="role" type="string" unique="true">
+			<column name="ROLE"/>
+		</property>
+
+		<set name="persons" table="PERSON_ROLES" lazy="false" fetch="select" inverse="true">
+		         <key column="role_id"/>
+		         <many-to-many column="person_id" class="com.pdomingo.model.person.Person"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

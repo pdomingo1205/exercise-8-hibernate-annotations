@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+ <!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+    <hibernate-configuration>
+        <session-factory>
+
+    		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    		<property name="hibernate.connection.username">postgres</property>
+    		<property name="hibernate.connection.password">postgres</property>
+    		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate</property>
+    		<property name="hibernate.show_sql">true</property>
+    		<property name="connection_pool_size">1</property>
+    		<property name="hbm2ddl.auto">update</property>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+            <property name="current_session_context_class">thread</property>
+
+            <property name="cache.use_second_level_cache">true</property>
+    		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+    		<property name="hibernate.cache.use_query_cache">true</property>
+    		<property name="hibernate.generate_statistics">true</property>
+            <property name="hibernate.cache.generate_statistics">true</property>
+
+    		<property name="show_sql">true</property>
+    		<property name="format_sql">true</property>
+
+
+            <mapping class="com.pdomingo.model.entities.Address"/>
+            <mapping class="com.pdomingo.model.entities.ContactInfo"/>
+            <mapping class="com.pdomingo.model.entities.Person"/>
+            <mapping class="com.pdomingo.model.entities.Name"/>
+            <mapping class="com.pdomingo.model.entities.Role"/>
+
+
+        </session-factory>
+    </hibernate-configuration>

@@ -1,0 +1,5 @@
+com/pdomingo/dao/RoleDaoImpl.class
+com/pdomingo/dao/PersonDaoImpl.class
+com/pdomingo/dao/DaoConfig.class
+com/pdomingo/dao/DaoInterface.class
+com/pdomingo/dao/ContactInfoDaoImpl.class
