@@ -37,7 +37,7 @@ public class RoleIO {
 
 	public Integer chooseOperation(){
 		listRoles();
-		
+
 		System.out.println("\n\t--- Choose Operation --- \n");
 		System.out.println("\n\t 1. Create Role");
 		System.out.println("\n\t 2. Update Role");
@@ -98,8 +98,11 @@ public class RoleIO {
 		String roleName = askRole().toUpperCase();
 
 		role = roleService.checkIfUnique(roleName);
+		System.out.println(role);
 		if(role.getRoleId() == null){
+			System.out.println("DAAN DITO" + role);
 			System.out.println(roleService.saveOrUpdate(role));
+			System.out.println(role);
 		}
 		else{
 			System.out.println("\n \t--- Role already exists ---\n");

@@ -8,6 +8,8 @@ import java.util.Set;
 import com.pdomingo.model.entities.*;
 import com.pdomingo.model.dto.*;
 
+import com.pdomingo.dao.PersonDaoImpl;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
@@ -15,6 +17,7 @@ public class EntityMapper {
 
 	PersonService personService = new PersonService();
 	RoleService roleService = new RoleService();
+	PersonDaoImpl personDaoImpl = new PersonDaoImpl();
     ContactInfoService contactInfoService = new ContactInfoService();
     //UserDTO targetUserDTO = new UserDTO();
     ModelMapper modelMapper = new ModelMapper();
@@ -65,7 +68,8 @@ public class EntityMapper {
 		personDTO.setAddress(createAddressDTO(person.getAddress()));
 		personDTO.setCurrEmployed(person.getCurrEmployed());
 		personDTO.setDateHired(person.getDateHired());
-		personDTO.setRoles(createRoleSetDTO(person.getRoles()));
+		Set<Role> roles = new HashSet(personDaoImpl.findPersonRoles(person.getPersonId()));
+		personDTO.setRoles(createRoleSetDTO(roles));
 		personDTO.setContactInfo(createContactSetDTO(person.getContactInfo()));
 
 		return personDTO;

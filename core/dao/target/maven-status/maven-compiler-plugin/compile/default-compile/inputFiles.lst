@@ -1,5 +1,5 @@
-/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/dao/src/main/java/com/pdomingo/RoleDaoImpl.java
-/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/dao/src/main/java/com/pdomingo/PersonDaoImpl.java
-/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/dao/src/main/java/com/pdomingo/ContactInfoDaoImpl.java
-/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/dao/src/main/java/com/pdomingo/DaoInterface.java
-/home/pdomingo/Repositories/exercise-7-hibernate-XML/core/dao/src/main/java/com/pdomingo/DaoConfig.java
+/home/pdomingo/Repositories/Exercise8/core/dao/src/main/java/com/pdomingo/ContactInfoDaoImpl.java
+/home/pdomingo/Repositories/Exercise8/core/dao/src/main/java/com/pdomingo/RoleDaoImpl.java
+/home/pdomingo/Repositories/Exercise8/core/dao/src/main/java/com/pdomingo/DaoInterface.java
+/home/pdomingo/Repositories/Exercise8/core/dao/src/main/java/com/pdomingo/PersonDaoImpl.java
+/home/pdomingo/Repositories/Exercise8/core/dao/src/main/java/com/pdomingo/DaoConfig.java

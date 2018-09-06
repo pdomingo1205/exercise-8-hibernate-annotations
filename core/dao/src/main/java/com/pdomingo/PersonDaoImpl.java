@@ -1,6 +1,6 @@
 package com.pdomingo.dao;
 
-import java.util.List;
+import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -35,14 +35,16 @@ public class PersonDaoImpl implements DaoInterface<Person, Long> {
 
 	@SuppressWarnings("unchecked")
 	public List<Role> findPersonRoles(Long id) {
-		DaoConfig.openCurrentSessionwithTransaction();
-		List<Role> roles;
-		roles = DaoConfig.getCurrentSession().createCriteria(Role.class).createAlias("persons", "person")
-							.add(Restrictions.eq("person.personId", id)).setCacheable(true).list();
+		List<Role> roles = new ArrayList<Role>();
+		try{
+			DaoConfig.openCurrentSessionwithTransaction();
+			roles = DaoConfig.getCurrentSession().createCriteria(Role.class).createAlias("persons", "person")
+			.add(Restrictions.eq("person.personId", id)).setCacheable(true).list();
+			DaoConfig.closeCurrentSessionwithTransaction();
 
+		}catch(Exception e){
 
-		DaoConfig.closeCurrentSessionwithTransaction();
-
+		}
 		return roles;
 	}
 
@@ -127,6 +129,8 @@ public class PersonDaoImpl implements DaoInterface<Person, Long> {
 
 		return persons;
 	}
+
+
 
 	public List<Person> listLastNameBy(String order) {
   		DaoConfig.openCurrentSessionwithTransaction();

@@ -41,7 +41,7 @@ public class RoleDaoImpl implements DaoInterface<Role, Long> {
 	public Role findById(Long id) {
 		DaoConfig.openCurrentSessionwithTransaction();
 		Role role = (Role) DaoConfig.getCurrentSession().get(Role.class, id);
-		role.getPersons().size();
+		//role.getPersons().size();
 		DaoConfig.closeCurrentSessionwithTransaction();
 		return role;
 	}
@@ -66,22 +66,20 @@ public class RoleDaoImpl implements DaoInterface<Role, Long> {
 		Role role = new Role();
 		DaoConfig.openCurrentSessionwithTransaction();
 		try{
-			Query query= DaoConfig.getCurrentSession().createQuery("from Role where role=:name").setCacheable(true);
-			query.setParameter("name", roleName);
-			role = (Role) query.uniqueResult();
+			role = (Role) DaoConfig.getCurrentSession().createCriteria(Role.class).add(Restrictions.eq("role", roleName))
+					.setCacheable(true).uniqueResult();
 		}catch(Exception e){
-
+			System.out.println(e.getMessage());
 		}
 		DaoConfig.closeCurrentSessionwithTransaction();
 		return role;
 	}
 
-
-	@SuppressWarnings("unchecked")
 	public List<Role> findAll() {
 		DaoConfig.openCurrentSessionwithTransaction();
 		DaoConfig.getCurrentSession().flush();
-		List<Role> roles = (List<Role>) DaoConfig.getCurrentSession().createQuery("from Role").setCacheable(true).list();
+		List<Role> roles = DaoConfig.getCurrentSession().createCriteria(Role.class).setCacheable(true).list();
+		//List<Role> roles = (List<Role>) DaoConfig.getCurrentSession().createQuery("from Role").setCacheable(true).list();
 		DaoConfig.closeCurrentSessionwithTransaction();
 		return roles;
 	}

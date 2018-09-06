@@ -25,6 +25,7 @@ public class RoleService {
 		String textToReturn ="";
 
 		try{
+			System.out.println(entity.getRole());
 			roleDao.saveOrUpdate(entityMapper.mapToRole(entity));
 			textToReturn =("\n\t!!! Role added! !!!\n");
 
@@ -75,15 +76,14 @@ public class RoleService {
 	public Boolean checkIfNameExists(String roleText){
 		Boolean exists = true;
 		try{
-
 			Role role = roleDao.findByRoleName(roleText);
-
+			System.out.println(role);
 			if (role == null) {
 				exists = false;
 			}
-
 		}catch(Exception e){
-
+			exists = false;
+			System.out.println(e.getMessage());
 		}
 
 		return exists;

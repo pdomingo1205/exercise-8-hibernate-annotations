@@ -22,8 +22,7 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "role")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="roles")
 public class Role{
 
 	@Id
@@ -33,8 +32,8 @@ public class Role{
 
 	private String role;
 
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="person")
+	@ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SELECT)
 	private Set<Person> persons = new HashSet<>();
 

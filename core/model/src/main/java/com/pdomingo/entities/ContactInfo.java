@@ -20,8 +20,7 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "contact_info")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="contacts")
 public class ContactInfo implements java.io.Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +33,7 @@ public class ContactInfo implements java.io.Serializable{
 	@Column(name="contact_type")
 	private String contactType;
 
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="person")
 	@ManyToOne(fetch=FetchType.EAGER, optional=false)
 	@Fetch(FetchMode.SELECT)
 	@JoinColumn(name="person_id", nullable = false)

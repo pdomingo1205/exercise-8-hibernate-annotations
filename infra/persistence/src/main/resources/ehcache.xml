@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" >
+
+	<diskStore path="/home/pdomingo/Repositories/Cache"/>
+
+	<defaultCache maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120"
+		maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="true">
+		<persistence strategy="localTempSwap" />
+	</defaultCache>
+
+	<cache name="person" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="5" timeToLiveSeconds="10" statistics="true">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+	<cache name="roles" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="5" timeToLiveSeconds="10"  statistics="true">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+	<cache name="contacts" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="5" timeToLiveSeconds="10"  statistics="true">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+
+</ehcache>

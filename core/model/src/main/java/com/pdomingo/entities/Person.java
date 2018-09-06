@@ -32,8 +32,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "person")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="person")
 public class Person{
 
 	@Id
@@ -60,14 +59,14 @@ public class Person{
 	@Column(name = "curr_employed")
 	private Boolean currEmployed;
 
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="contacts")
     @OneToMany(mappedBy="person", fetch=FetchType.EAGER, orphanRemoval=false)
     @Cascade({CascadeType.ALL})
     @Fetch(FetchMode.SELECT)
 	private Set<ContactInfo> contactInfo = new HashSet<ContactInfo>(0);
 
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @ManyToMany(fetch=FetchType.EAGER)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="roles")
+    @ManyToMany(fetch=FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
     @JoinTable(name = "person_roles",
         joinColumns = { @JoinColumn(name = "person_id")},
